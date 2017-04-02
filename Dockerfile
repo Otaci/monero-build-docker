@@ -24,7 +24,7 @@ ENV LC_ALL en_US.UTF-8
 
 # install dependencies
 RUN apt-get -q update &&\
-    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew"  --no-install-recommends git build-essential cmake pkg-config libboost-all-dev libssl-dev libunbound-dev libminiupnpc-dev libunwind8-dev liblzma-dev libldns-dev libexpat1-dev doxygen graphviz &&\
+    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew"  --no-install-recommends git build-essential cmake pkg-config libboost-all-dev libssl-dev libunbound-dev libminiupnpc-dev libunwind8-dev liblzma-dev libldns-dev libexpat1-dev doxygen graphviz cloc &&\
     DEBIAN_FRONTEND="noninteractive" apt-get -q install -y libgtest-dev && cd /usr/src/gtest && cmake . && make && mv libg* /usr/lib &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
